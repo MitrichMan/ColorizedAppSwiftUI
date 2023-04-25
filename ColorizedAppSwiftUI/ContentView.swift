@@ -21,6 +21,7 @@ struct ContentView: View {
         ZStack {
             Color(.cyan)
                 .ignoresSafeArea()
+            
             VStack {
                 ColorView(
                     color: UIColor(
@@ -31,7 +32,7 @@ struct ContentView: View {
                     )
                 )
                     .padding()
-
+                
                 ColorSliderView(
                     sliderValue: $redSliderValue,
                     isFocused: _isFocused,
@@ -47,13 +48,14 @@ struct ContentView: View {
                     isFocused: _isFocused,
                     color: .blue
                 )
-
+                
                 Spacer()
             }
         }
         .onTapGesture {
             UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
         }
+        
         .toolbar {
             ToolbarItemGroup(placement: .keyboard) {
                 Spacer()
