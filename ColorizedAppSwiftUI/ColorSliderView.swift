@@ -28,6 +28,11 @@ struct ColorSliderView: View {
                 value: $sliderValue,
                 formatter: NumberFormatter()
             )
+            .onChange(of: sliderValue, perform: { newValue in
+                if sliderValue > 255 {
+                    sliderValue = 255
+                }
+            })
                 .textFieldStyle(.roundedBorder)
                 .frame(width: 46)
                 .keyboardType(.numberPad)
