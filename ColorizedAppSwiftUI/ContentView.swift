@@ -14,6 +14,8 @@ struct ContentView: View {
     @State private var redSliderValue = Double.random(in: 0...255)
     @State private var greenSliderValue = Double.random(in: 0...255)
     @State private var blueSliderValue = Double.random(in: 0...255)
+    
+    @FocusState var isFocused : Bool
             
     var body: some View {
         ZStack {
@@ -29,19 +31,22 @@ struct ContentView: View {
                     )
                 )
                     .padding()
-                ColorSlider(
+                ColorSliderView(
                     sliderValue: $redSliderValue,
                     text: $text,
+                    isFocused: _isFocused,
                     color: .red
                 )
-                ColorSlider(
+                ColorSliderView(
                     sliderValue: $greenSliderValue,
                     text: $text,
+                    isFocused: _isFocused,
                     color: .green
                 )
-                ColorSlider(
+                ColorSliderView(
                     sliderValue: $blueSliderValue,
                     text: $text,
+                    isFocused: _isFocused,
                     color: .blue
                 )
                 Spacer()
@@ -51,15 +56,11 @@ struct ContentView: View {
             ToolbarItemGroup(placement: .keyboard) {
                 Spacer()
                 Button("Done") {
-                    convertValue(from: 14.0)
+                    isFocused = false
                 }
             }
         }
     }
-}
-
-private func convertValue(from value: Double) -> String {
-    String(value)
 }
 
 struct ContentView_Previews: PreviewProvider {
@@ -68,28 +69,31 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
-struct ColorSlider: View {
-    @Binding var sliderValue: Double
-    @Binding var text: String
-    
-    var color: Color
-    
-    var body: some View {
-        HStack {
-            Text("\(lround(sliderValue))")
-                .frame(width: 35)
-                .foregroundColor(color)
-            Slider(value: $sliderValue, in: 0...255, step: 1)
-                .accentColor(color)
-            TextField(
-                "",
-                value: $sliderValue,
-                formatter: NumberFormatter()
-            )
-                .textFieldStyle(.roundedBorder)
-                .frame(width: 46)
-                .keyboardType(.numberPad)
-        }
-        .padding(EdgeInsets(top: 8, leading: 16, bottom: 0, trailing: 16))
-    }
-}
+//struct ColorSliderView: View {
+//    @Binding var sliderValue: Double
+//    @Binding var text: String
+//
+//    @FocusState var isFocused: Bool
+//
+//    var color: Color
+//
+//    var body: some View {
+//        HStack {
+//            Text("\(lround(sliderValue))")
+//                .frame(width: 35)
+//                .foregroundColor(color)
+//            Slider(value: $sliderValue, in: 0...255, step: 1)
+//                .accentColor(color)
+//            TextField(
+//                "",
+//                value: $sliderValue,
+//                formatter: NumberFormatter()
+//            )
+//                .textFieldStyle(.roundedBorder)
+//                .frame(width: 46)
+//                .keyboardType(.numberPad)
+//                .focused($isFocused)
+//        }
+//        .padding(EdgeInsets(top: 8, leading: 16, bottom: 0, trailing: 16))
+//    }
+//}

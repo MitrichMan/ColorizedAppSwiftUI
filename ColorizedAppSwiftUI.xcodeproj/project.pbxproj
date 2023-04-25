@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D90F43D29F7CF6F0078D1CA /* ColorSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D90F43C29F7CF6F0078D1CA /* ColorSliderView.swift */; };
 		4DD4F6EF29F6757B00A17900 /* ColorizedAppSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD4F6EE29F6757B00A17900 /* ColorizedAppSwiftUIApp.swift */; };
 		4DD4F6F129F6757B00A17900 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD4F6F029F6757B00A17900 /* ContentView.swift */; };
 		4DD4F6F329F6757C00A17900 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DD4F6F229F6757C00A17900 /* Assets.xcassets */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4D90F43C29F7CF6F0078D1CA /* ColorSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSliderView.swift; sourceTree = "<group>"; };
 		4DD4F6EB29F6757B00A17900 /* ColorizedAppSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColorizedAppSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DD4F6EE29F6757B00A17900 /* ColorizedAppSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorizedAppSwiftUIApp.swift; sourceTree = "<group>"; };
 		4DD4F6F029F6757B00A17900 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 				4DD4F6EE29F6757B00A17900 /* ColorizedAppSwiftUIApp.swift */,
 				4DD4F6F029F6757B00A17900 /* ContentView.swift */,
 				4DD4F6FC29F6760400A17900 /* ColorView.swift */,
+				4D90F43C29F7CF6F0078D1CA /* ColorSliderView.swift */,
 				4DD4F6F229F6757C00A17900 /* Assets.xcassets */,
 				4DD4F6F429F6757C00A17900 /* Preview Content */,
 			);
@@ -141,6 +144,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DD4F6FD29F6760400A17900 /* ColorView.swift in Sources */,
+				4D90F43D29F7CF6F0078D1CA /* ColorSliderView.swift in Sources */,
 				4DD4F6F129F6757B00A17900 /* ContentView.swift in Sources */,
 				4DD4F6EF29F6757B00A17900 /* ColorizedAppSwiftUIApp.swift in Sources */,
 			);
