@@ -29,9 +29,9 @@ struct ContentView: View {
                     )
                 )
                     .padding()
-                ColorSlider(color: .red, sliderValue: $redSliderValue)
-                ColorSlider(color: .green, sliderValue: $greenSliderValue)
-                ColorSlider(color: .blue, sliderValue: $blueSliderValue)
+                ColorSlider(sliderValue: $redSliderValue, color: .red)
+                ColorSlider(sliderValue: $greenSliderValue, color: .green)
+                ColorSlider(sliderValue: $blueSliderValue, color: .blue)
                 Spacer()
             }
         }
@@ -45,18 +45,18 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 struct ColorSlider: View {
-    var color: Color
     @Binding var sliderValue: Double
+    
+    var color: Color
     
     var body: some View {
         HStack {
             Text("0").foregroundColor(color)
             Slider(value: $sliderValue, in: 0...255, step: 1)
                 .accentColor(color)
-            Text("255").foregroundColor(color)
-//            TextField("0.00", text: $sliderText)
-//                .textFieldStyle(.roundedBorder)
-//                .frame(width: 46)
+            TextField("0.00", text: $sliderText)
+                .textFieldStyle(.roundedBorder)
+                .frame(width: 46)
         }
         .padding(EdgeInsets(top: 8, leading: 16, bottom: 0, trailing: 16))
     }
