@@ -29,9 +29,21 @@ struct ContentView: View {
                     )
                 )
                     .padding()
-                ColorSlider(sliderValue: $redSliderValue, color: .red)
-                ColorSlider(sliderValue: $greenSliderValue, color: .green)
-                ColorSlider(sliderValue: $blueSliderValue, color: .blue)
+                ColorSlider(
+                    sliderValue: $redSliderValue,
+                    text: $text,
+                    color: .red
+                )
+                ColorSlider(
+                    sliderValue: $greenSliderValue,
+                    text: $text,
+                    color: .green
+                )
+                ColorSlider(
+                    sliderValue: $blueSliderValue,
+                    text: $text,
+                    color: .blue
+                )
                 Spacer()
             }
         }
@@ -46,6 +58,7 @@ struct ContentView_Previews: PreviewProvider {
 
 struct ColorSlider: View {
     @Binding var sliderValue: Double
+    @Binding var text: String
     
     var color: Color
     
@@ -54,7 +67,7 @@ struct ColorSlider: View {
             Text("0").foregroundColor(color)
             Slider(value: $sliderValue, in: 0...255, step: 1)
                 .accentColor(color)
-            TextField("0.00", text: $sliderText)
+            TextField("0.00", text: $text)
                 .textFieldStyle(.roundedBorder)
                 .frame(width: 46)
         }
