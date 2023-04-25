@@ -47,6 +47,14 @@ struct ContentView: View {
                 Spacer()
             }
         }
+        .toolbar {
+            ToolbarItemGroup(placement: .keyboard) {
+                Spacer()
+                Button("Done") {
+                    convertValue(from: 14.0)
+                }
+            }
+        }
     }
 }
 
@@ -73,9 +81,14 @@ struct ColorSlider: View {
                 .foregroundColor(color)
             Slider(value: $sliderValue, in: 0...255, step: 1)
                 .accentColor(color)
-//            TextField("0.00", text: $text)
-//                .textFieldStyle(.roundedBorder)
-//                .frame(width: 46)
+            TextField(
+                "",
+                value: $sliderValue,
+                formatter: NumberFormatter()
+            )
+                .textFieldStyle(.roundedBorder)
+                .frame(width: 46)
+                .keyboardType(.numberPad)
         }
         .padding(EdgeInsets(top: 8, leading: 16, bottom: 0, trailing: 16))
     }
