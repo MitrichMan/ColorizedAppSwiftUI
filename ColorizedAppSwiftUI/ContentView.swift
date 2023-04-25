@@ -15,6 +15,8 @@ struct ContentView: View {
     @State private var greenSliderValue = Double.random(in: 0...255)
     @State private var blueSliderValue = Double.random(in: 0...255)
     
+    @FocusState var isFocused : Bool
+            
     var body: some View {
         ZStack {
             Color(.cyan)
@@ -29,10 +31,35 @@ struct ContentView: View {
                     )
                 )
                     .padding()
-                ColorSlider(sliderValue: $redSliderValue, color: .red)
-                ColorSlider(sliderValue: $greenSliderValue, color: .green)
-                ColorSlider(sliderValue: $blueSliderValue, color: .blue)
+
+                ColorSliderView(
+                    sliderValue: $redSliderValue,
+                    isFocused: _isFocused,
+                    color: .red
+                )
+                ColorSliderView(
+                    sliderValue: $greenSliderValue,
+                    isFocused: _isFocused,
+                    color: .green
+                )
+                ColorSliderView(
+                    sliderValue: $blueSliderValue,
+                    isFocused: _isFocused,
+                    color: .blue
+                )
+
                 Spacer()
+            }
+        }
+        .onTapGesture {
+            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+        }
+        .toolbar {
+            ToolbarItemGroup(placement: .keyboard) {
+                Spacer()
+                Button("Done") {
+                    isFocused = false
+                }
             }
         }
     }
@@ -41,22 +68,5 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-    }
-}
-
-struct ColorSlider: View {
-    @Binding var sliderValue: Double
-    
-    var color: Color
-    
-    var body: some View {
-        HStack {
-            Text("\(lround(sliderValue))")
-                .frame(width: 35)
-                .foregroundColor(color)
-            Slider(value: $sliderValue, in: 0...255, step: 1)
-                .accentColor(color)
-        }
-        .padding(EdgeInsets(top: 8, leading: 16, bottom: 0, trailing: 16))
     }
 }
