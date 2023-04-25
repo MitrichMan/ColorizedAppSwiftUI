@@ -52,6 +52,7 @@ struct ColorSlider: View {
         HStack {
             Text("0").foregroundColor(color)
             Slider(value: $sliderValue, in: 0...255, step: 1)
+                .accentColor(color)
             Text("255").foregroundColor(color)
 //            TextField("0.00", text: $sliderText)
 //                .textFieldStyle(.roundedBorder)
