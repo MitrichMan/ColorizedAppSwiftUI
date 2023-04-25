@@ -8,9 +8,6 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var color: Color = .red
-    @State private var text = "255"
-    
     @State private var redSliderValue = Double.random(in: 0...255)
     @State private var greenSliderValue = Double.random(in: 0...255)
     @State private var blueSliderValue = Double.random(in: 0...255)
