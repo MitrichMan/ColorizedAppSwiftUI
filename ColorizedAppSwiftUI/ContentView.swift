@@ -33,24 +33,24 @@ struct ContentView: View {
                     .padding()
                 ColorSliderView(
                     sliderValue: $redSliderValue,
-                    text: $text,
                     isFocused: _isFocused,
                     color: .red
                 )
                 ColorSliderView(
                     sliderValue: $greenSliderValue,
-                    text: $text,
                     isFocused: _isFocused,
                     color: .green
                 )
                 ColorSliderView(
                     sliderValue: $blueSliderValue,
-                    text: $text,
                     isFocused: _isFocused,
                     color: .blue
                 )
                 Spacer()
             }
+        }
+        .onTapGesture {
+            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
         }
         .toolbar {
             ToolbarItemGroup(placement: .keyboard) {
@@ -68,32 +68,3 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
-
-//struct ColorSliderView: View {
-//    @Binding var sliderValue: Double
-//    @Binding var text: String
-//
-//    @FocusState var isFocused: Bool
-//
-//    var color: Color
-//
-//    var body: some View {
-//        HStack {
-//            Text("\(lround(sliderValue))")
-//                .frame(width: 35)
-//                .foregroundColor(color)
-//            Slider(value: $sliderValue, in: 0...255, step: 1)
-//                .accentColor(color)
-//            TextField(
-//                "",
-//                value: $sliderValue,
-//                formatter: NumberFormatter()
-//            )
-//                .textFieldStyle(.roundedBorder)
-//                .frame(width: 46)
-//                .keyboardType(.numberPad)
-//                .focused($isFocused)
-//        }
-//        .padding(EdgeInsets(top: 8, leading: 16, bottom: 0, trailing: 16))
-//    }
-//}

@@ -9,11 +9,13 @@ import SwiftUI
 
 struct ColorSliderView: View {
     @Binding var sliderValue: Double
-    @Binding var text: String
-    
+    @State var maxValue = 255.0
+        
     @FocusState var isFocused: Bool
     
     var color: Color
+    
+    private let numberFormatter = NumberFormatter()
     
     var body: some View {
         HStack {
@@ -25,7 +27,7 @@ struct ColorSliderView: View {
             TextField(
                 "",
                 value: $sliderValue,
-                formatter: NumberFormatter()
+                formatter: numberFormatter
             )
                 .textFieldStyle(.roundedBorder)
                 .frame(width: 46)
