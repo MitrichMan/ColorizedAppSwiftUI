@@ -21,14 +21,11 @@ struct ContentView: View {
             
             VStack {
                 ColorView(
-                    color: UIColor(
-                        red: redSliderValue / 255,
-                        green: greenSliderValue / 255,
-                        blue: blueSliderValue / 255,
-                        alpha: 1
-                    )
+                    red: redSliderValue,
+                    green: greenSliderValue,
+                    blue: blueSliderValue
                 )
-                    .padding()
+                .padding()
                 
                 ColorSliderView(
                     sliderValue: $redSliderValue,
@@ -50,7 +47,7 @@ struct ContentView: View {
             }
         }
         .onTapGesture {
-            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+            isFocused = false
         }
         
         .toolbar {

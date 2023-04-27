@@ -7,20 +7,23 @@
 
 import SwiftUI
 
-struct ColorView: View {
-    var color: UIColor
+struct ColorView: View {    
+    let red: Double
+    let green: Double
+    let blue: Double
     
     var body: some View {
-        Color(color)
-            .frame(width: 350, height: 200)
-            .cornerRadius(20)
-            .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.black, lineWidth: 4))
-            .shadow(radius: 10)
-    }
-}
-
-struct ColorView_Previews: PreviewProvider {
-    static var previews: some View {
-        ColorView(color: .red)
+        Color(
+            UIColor(
+                red: red / 255,
+                green: green / 255,
+                blue: blue / 255,
+                alpha: 1
+            )
+        )
+        .frame(width: 350, height: 200)
+        .cornerRadius(20)
+        .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.black, lineWidth: 4))
+        .shadow(radius: 10)
     }
 }
