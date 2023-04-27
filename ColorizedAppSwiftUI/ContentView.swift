@@ -18,7 +18,9 @@ struct ContentView: View {
         ZStack {
             Color(.cyan)
                 .ignoresSafeArea()
-            
+                .onTapGesture {
+                    isFocused = false
+                }
             VStack {
                 ColorView(
                     red: redSliderValue,
@@ -29,27 +31,22 @@ struct ContentView: View {
                 
                 ColorSliderView(
                     sliderValue: $redSliderValue,
-                    isFocused: _isFocused,
                     color: .red
                 )
                 ColorSliderView(
                     sliderValue: $greenSliderValue,
-                    isFocused: _isFocused,
                     color: .green
                 )
                 ColorSliderView(
                     sliderValue: $blueSliderValue,
-                    isFocused: _isFocused,
                     color: .blue
                 )
                 
                 Spacer()
             }
+            .focused($isFocused)
+            .padding()
         }
-        .onTapGesture {
-            isFocused = false
-        }
-        
         .toolbar {
             ToolbarItemGroup(placement: .keyboard) {
                 Spacer()

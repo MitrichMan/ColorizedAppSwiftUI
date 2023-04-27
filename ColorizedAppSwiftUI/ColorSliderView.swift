@@ -12,9 +12,6 @@ struct ColorSliderView: View {
     @State private var text = ""
     @State private var showAlert = false
 
-    
-    @FocusState var isFocused: Bool
-    
     let color: Color
     
     var body: some View {
@@ -31,14 +28,12 @@ struct ColorSliderView: View {
             TextFieldView(
                 sliderValue: $sliderValue,
                 text: $text,
-                doneAction: validate,
-                isFocused: _isFocused
+                doneAction: validate
             )
             .alert("Wrong Format", isPresented: $showAlert, actions: {}) {
                 Text("Please enter value from 0 to 255")
             }
         }
-        .padding(EdgeInsets(top: 8, leading: 16, bottom: 0, trailing: 16))
         .onAppear {
             text = lround(sliderValue).formatted()
         }

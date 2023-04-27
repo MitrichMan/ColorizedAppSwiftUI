@@ -12,9 +12,7 @@ struct TextFieldView: View {
     @Binding var text: String
     
     let doneAction: () -> Void
-    
-    @FocusState var isFocused: Bool
-    
+        
     var body: some View {
         TextField("", text: $text) { _ in
             withAnimation {
@@ -23,8 +21,6 @@ struct TextFieldView: View {
         }
         .textFieldStyle(.roundedBorder)
         .frame(width: 46)
-        .keyboardType(.numberPad)
-        .focused($isFocused)
-        
+        .keyboardType(.numberPad)        
     }
 }

@@ -14,12 +14,9 @@ struct ColorView: View {
     
     var body: some View {
         Color(
-            UIColor(
-                red: red / 255,
-                green: green / 255,
-                blue: blue / 255,
-                alpha: 1
-            )
+            red: red / 255,
+            green: green / 255,
+            blue: blue / 255
         )
         .frame(width: 350, height: 200)
         .cornerRadius(20)
